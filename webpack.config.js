@@ -104,6 +104,7 @@ module.exports = (env)=>{
 
 //====================================================================================
 
+/*
 //плагины для корректной сборки в html
 //npm run build:dev
 // после появится в build html файлик со сборкой
@@ -115,7 +116,7 @@ module.exports = (env)=>{
     return {
 
         mode: env.mode ?? 'development', // режим сборки, есть production и  development
-        entry:   path.resolve(__dirname, 'src', 'index.js'), // сборка файла
+        entry:   path.resolve(__dirname, 'src', 'index.ts'), // сборка файла
         
 
         output: { //   куда будет идти сборка, после npm run build мы получаем папку build с файлом bundle.js куда прошла сборка
@@ -131,4 +132,57 @@ plugins: [
 ],
 
         }
-}
+} */
+
+//TAЙПСКРИПТ
+
+
+
+
+const HtmlWebpackPlugin = require('html-webpack-plugin'); // npm i -D html-webpack-plugin@5.5.3
+
+const webpack = require('webpack')
+const path = require('path')
+module.exports = (env)=>{
+    return {
+
+        mode: env.mode ?? 'development', // режим сборки, есть production и  development
+        entry:   path.resolve(__dirname, 'src', 'index.ts'), // сборка файла
+        
+
+        output: { //   куда будет идти сборка, после npm run build мы получаем папку build с файлом bundle.js куда прошла сборка
+    path:   path.resolve(__dirname,  'build'),
+    filename: '[name].[contenthash].js',  // cобирает из кеша
+    clean: true // удаляет лишниие файлы не схожие с названием filename из build при сборке
+},
+plugins: [
+    new HtmlWebpackPlugin({ template:path.resolve(__dirname, 'public', 'index.html') }),
+   new  webpack.ProgressPlugin(), // показывает текущее состояние сборки в %, в продакшене не юзается так как амедляет сборку
+   
+
+],
+
+module: {
+  rules: [ // в rules указываются лоадеры
+    {
+      test: /\.tsx?$/,  // расширения файлов которые мы хотим обрабаотывать
+      use: 'ts-loader',
+      exclude: /node_modules/, // то что мы не обрабатываем
+
+      // благодаря вебпаку мы можем импортировать так "./index" а не ./index.ts так как он понимает какого раширения этот  файл
+    },
+  ],
+},
+resolve: {
+  extensions: ['.tsx', '.ts', '.js'],
+},
+
+
+
+
+        }
+} 
+
+
+
+
