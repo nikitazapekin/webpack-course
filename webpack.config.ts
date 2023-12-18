@@ -207,11 +207,13 @@ interface EnvVariable {
   port: number
 }
 export default (env: EnvVariable)=>{
+
+  const isDev = env.mode==='development' 
   const config: webpack.Configuration= {
    // return {
 
         mode: env.mode ?? 'development', // режим сборки, есть production и  development
-        entry:   path.resolve(__dirname, 'src', 'index.ts'), // сборка файла
+        entry:   path.resolve(__dirname, 'src', 'index.tsx'), // сборка файла
         
 
         output: { //   куда будет идти сборка, после npm run build мы получаем папку build с файлом bundle.js куда прошла сборка
@@ -240,13 +242,11 @@ module: {
 resolve: {
   extensions: ['.tsx', '.ts', '.js'],
 },
-devtool: 'inline-source-map', // добавляет source mapping после npm run build:dev в концк сборки
+devtool: isDev ? 'inline-source-map' : false, // добавляет source mapping после npm run build:dev в концк сборки
 devServer: {
 port: env.port ?? 3000,
 open: true
-}
-
-
+}  
 
         }
         return config
