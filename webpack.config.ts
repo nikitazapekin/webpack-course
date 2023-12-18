@@ -199,7 +199,7 @@ import  path from 'path';
 import  webpack from 'webpack';
 import  HtmlWebpackPlugin from "html-webpack-plugin"
 import type { Configuration as DevServerConfiguration } from 'webpack-dev-server';
-
+import MiniCssExtractPlugin from "mini-css-extract-plugin"
 
 type Mode = 'production' | 'development'
 interface EnvVariable {
@@ -225,14 +225,30 @@ plugins: [
     new HtmlWebpackPlugin({ template:path.resolve(__dirname, 'public', 'index.html') }),
    new  webpack.ProgressPlugin(), // показывает текущее состояние сборки в %, в продакшене не юзается так как амедляет сборку
    
+  // new MiniCssExtractPlugin(),
+  new MiniCssExtractPlugin({
+    filename: 'css/[name].[contenthash:8].css',
+    chunkFilename: 'css/[name].[contenthash:8].css',
+   }),
+
 
 ],
 
 module: {
   rules: [ // в rules указываются лоадеры. ИХ ПОРЯДОК ВАЖЕН!!!!!!!!!!!
+
+
   {
     test: /\.css$/i,
-    use: ["style-loader", "css-loader"],
+    use: [
+     // "style-loader", 
+    MiniCssExtractPlugin.loader,  // плагин для вынесения отдельных css-файлов в сборке (main.css)
+    
+   
+   "css-loader",
+   // "sass-loader" плагин для .scss файлов 
+  
+  ],
   },
     {
       test: /\.tsx?$/,  // расширения файлов которые мы хотим обрабаотывать

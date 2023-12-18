@@ -1,0 +1,17 @@
+/*!**************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./src/components/App.css ***!
+  \**************************************************************************/
+button {
+     background-color: red;
+}
+/*!******************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./src/components/Box/Box.css ***!
+  \******************************************************************************/
+.Boxx {
+    width: 300px;
+    height: 400px;
+    margin: 0 auto;
+    background-color: red;
+}
+
+/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiY3NzL21haW4uZWJmZWQyMTkuY3NzIiwibWFwcGluZ3MiOiI7OztBQUFBO0tBQ0sscUJBQXFCO0FBQzFCLEM7Ozs7QUNGQTtJQUNJLFlBQVk7SUFDWixhQUFhO0lBQ2IsY0FBYztJQUNkLHFCQUFxQjtBQUN6QixDIiwic291cmNlcyI6WyJ3ZWJwYWNrOi8vd2VicGFjay1jb3Vyc2UvLi9zcmMvY29tcG9uZW50cy9BcHAuY3NzIiwid2VicGFjazovL3dlYnBhY2stY291cnNlLy4vc3JjL2NvbXBvbmVudHMvQm94L0JveC5jc3MiXSwic291cmNlc0NvbnRlbnQiOlsiYnV0dG9uIHtcclxuICAgICBiYWNrZ3JvdW5kLWNvbG9yOiByZWQ7XHJcbn0iLCIuQm94eCB7XHJcbiAgICB3aWR0aDogMzAwcHg7XHJcbiAgICBoZWlnaHQ6IDQwMHB4O1xyXG4gICAgbWFyZ2luOiAwIGF1dG87XHJcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiByZWQ7XHJcbn0iXSwibmFtZXMiOltdLCJzb3VyY2VSb290IjoiIn0=*/
