@@ -14,6 +14,8 @@ console.log(calc(4,5)) */
 
 
 //ЗАПУСТИТЬ ЭТО МОЖНО  написав npm run start
+//npm install --save-dev css-loader@6.8.1
+//npm i -D style-loader@3.3.3
 import React from "react"
 import App from "./components/App"
 import {createRoot} from "react-dom/client"

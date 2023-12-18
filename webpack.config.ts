@@ -229,7 +229,11 @@ plugins: [
 ],
 
 module: {
-  rules: [ // в rules указываются лоадеры
+  rules: [ // в rules указываются лоадеры. ИХ ПОРЯДОК ВАЖЕН!!!!!!!!!!!
+  {
+    test: /\.css$/i,
+    use: ["style-loader", "css-loader"],
+  },
     {
       test: /\.tsx?$/,  // расширения файлов которые мы хотим обрабаотывать
       use: 'ts-loader',
