@@ -3,5 +3,5 @@
 // npm run build  - то что получакм после сборки называем bundle
 //npm i -D ts-loader@9.5.0 typescript@5.2.2
 import { calc } from "./test";
-console.log(123)
+console.log(1233333)
 console.log(calc(4,5))
